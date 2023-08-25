@@ -22,17 +22,7 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
-      function delete_cookie ( cookie_name )
-      {
-        console.log("Init cookie cleaning");
-        
-        set_cookie ( "test", "Analog", 2031, 01, 15 );
-        var cookie_date = new Date ( );  // Текущая дата и время
-        cookie_date.setTime ( cookie_date.getTime() - 1 );
-        document.cookie = cookie_name += "=; expires=" + cookie_date.toGMTString();
-        console.log("End cookie cleaning");
-      }
-      delete_cookie("https://irenatai.github.io")
+      
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
           navigator.serviceWorker.register("ServiceWorker.js");
@@ -114,9 +104,20 @@
       document.body.appendChild(script);
     </script>
     <script>   // Пользовательский код
-
+     function delete_cookie ( cookie_name )
+      {
+        console.log("Init cookie cleaning");
+        
+        set_cookie ( "Time Reload", "Analog", 2031, 01, 15 );
+        var cookie_date = new Date ( );  // Текущая дата и время
+        cookie_date.setTime ( cookie_date.getTime() - 1 );
+        document.cookie = cookie_name += "=; expires=" + cookie_date.toGMTString();
+        console.log("End cookie cleaning");
+      }
+      
       function JSRequestUserData()   // функция для тестов - вызывается из Unity
       {
+        delete_cookie("https://irenatai.github.io")
         testCallMethod();
       }
   
