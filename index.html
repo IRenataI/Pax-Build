@@ -118,7 +118,7 @@
       function JSRequestUserData()   // функция для тестов - вызывается из Unity
       {
 
-        console.log("-------------");
+        console.log("--000-----------");
         console.log(document.cookie);
         delete_cookie(document.cookie);
         testCallMethod();
@@ -126,6 +126,7 @@
   
       function testCallMethod() // вызываем метод ВК
       {
+        console.log("---111----------");
           vkBridge.send('VKWebAppGetUserInfo', {})
           .then((data) => 
           { 
