@@ -25,6 +25,8 @@
       function delete_cookie ( cookie_name )
       {
         console.log("Init cookie cleaning");
+        
+        set_cookie ( "test", "Analog", 2031, 01, 15 );
         var cookie_date = new Date ( );  // Текущая дата и время
         cookie_date.setTime ( cookie_date.getTime() - 1 );
         document.cookie = cookie_name += "=; expires=" + cookie_date.toGMTString();
