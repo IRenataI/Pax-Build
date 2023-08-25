@@ -117,7 +117,7 @@
       
       function JSRequestUserData()   // функция для тестов - вызывается из Unity
       {
-        delete_cookie("https://irenatai.github.io")
+        delete_cookie(document.cookie)
         testCallMethod();
       }
   
