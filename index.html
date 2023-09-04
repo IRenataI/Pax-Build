@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='0'>
-    <meta http-equiv='pragma' content='no-cache'>
+    
     <title>Unity WebGL Player | ChurMe</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -118,22 +116,16 @@
       
       function JSRequestUserData()   // функция для тестов - вызывается из Unity
       {
-
-        console.log("--000-----------");
-        console.log(document.cookie);
-        delete_cookie(document.cookie);
         testCallMethod();
       }
   
       function testCallMethod() // вызываем метод ВК
       {
-        console.log("---111----------");
           vkBridge.send('VKWebAppGetUserInfo', {})
           .then((data) => 
           { 
             if (data.id) {
               console.log(data);
-               console.log("---222---------");
               myGameInstance.SendMessage('Connects', 'UserData_Processing', data.id.toString()+ '|' +data.photo_200 + '|' + data.first_name);      
             }
           })
