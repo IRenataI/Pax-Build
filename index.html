@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
-    <title>Unity WebGL Player | ChurMe</title>
+    <title> ChurMe </title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="TemplateData/style.css?v=345874954">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <link rel="manifest" href="manifest.webmanifest">
@@ -35,17 +35,21 @@
       // Modify or remove this function to customize the visually presented
       // way that non-critical warnings and error messages are presented to the
       // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
+      function unityShowBanner(msg, type)
+      {
+        function updateBannerVisibility()
+        {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }
         var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
         if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
+        else
+        {
           if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
+          setTimeout(function()
+          {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -54,10 +58,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Pax-Build.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/Pax-Build.data",
-        frameworkUrl: buildUrl + "/Pax-Build.framework.js",
+      var loaderUrl = buildUrl + "/Pax-Build.loader.js?v=345874954";
+      var config =
+      {
+        dataUrl: buildUrl + "/Pax-Build.data?v=345874954",
+        frameworkUrl: buildUrl + "/Pax-Build.framework.js?v=345874954",
         codeUrl: buildUrl + "/Pax-Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
@@ -73,7 +78,8 @@
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+      {
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
@@ -85,13 +91,19 @@
       var myGameInstance = null; // для обращения к Unity
       var script = document.createElement("script");
       script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
+      script.onload = () =>
+      {
+        createUnityInstance(canvas, config, (progress) =>
+        {
           progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
+        })
+        .then((unityInstance) =>
+        {
           myGameInstance = unityInstance;
           loadingBar.style.display = "none";
-        }).catch((message) => {
+        })
+        .catch((message) =>
+        {
           alert(message);
         });
       };
@@ -108,12 +120,14 @@
           vkBridge.send('VKWebAppGetUserInfo', {})
           .then((data) => 
           { 
-            if (data.id) {
+            if (data.id)
+            {
               console.log(data);
-              myGameInstance.SendMessage('Connects', 'UserData_Processing', data.id.toString()+ '|' +data.photo_200 + '|' + data.first_name);      
+              myGameInstance.SendMessage('Connects', 'UserData_Processing', data.id.toString()+ '|' +data.photo_200 + '|' + data.first_name);
             }
           })
-          .catch((error) => {
+          .catch((error) =>
+          {
             console.log(error);
           });
       }
