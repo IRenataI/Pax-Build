@@ -1,4 +1,4 @@
-const cacheName = "DefaultCompany-ChurMe-0.1";
+const cacheName = "DefaultCompany-ChurMe-0.2";
 const contentToCache = [
     "Build/Pax-Build.loader.js",
     "Build/Pax-Build.framework.js",
