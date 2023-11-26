@@ -1,6 +1,6 @@
 {
-    "name": "ChurMe",
-    "short_name": "ChurMe",
+    "name": "Чур Меня!",
+    "short_name": "Чур Меня!",
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#231F20",
